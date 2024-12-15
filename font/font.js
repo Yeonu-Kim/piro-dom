@@ -1,10 +1,11 @@
-const slider = document.getElementById('slider');
-const text = document.querySelector('.text');
-const texts = text.children;
+const slider = document.getElementById("text_slider");
+const textContainer = document.querySelector(".text_container");
 
-slider.addEventListener('input', (event) => {
-  console.log(event); // 꼭 꼼꼼하게 살펴보기!
-  for(let text of texts) {
+const texts = textContainer.children;
+
+slider.addEventListener("input", (event) => {
+  // console.log(event);
+  Array.from(texts).map((text) => {
     text.style.fontWeight = event.target.value * 10;
-  }
-})
+  });
+});

@@ -1,13 +1,18 @@
 @font-face {
-  font-family: 'NanumSquareNeoVariable';
+  font-family: "NanumSquareNeoVariable";
   src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf) format("truetype");
+  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix)
+      format("embedded-opentype"),
+    url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff)
+      format("woff"),
+    url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf)
+      format("truetype");
 }
 html {
   font-size: 62.5%;
-  font-family: 'NanumSquareNeoVariable';
+  font-family: "NanumSquareNeoVariable";
 }
-#container {
+#main {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -15,17 +20,17 @@ html {
   height: 100vh;
   width: 100vw;
 }
-.text > h1 {
+.text_container > h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-#slider {
+#text_slider {
   appearance: none;
   width: 50%;
   height: 3px;
   background-color: black;
 }
-#slider::-webkit-slider-thumb {
+#text_slider::-webkit-slider-thumb {
   appearance: none;
   width: 2rem;
   height: 2rem;
