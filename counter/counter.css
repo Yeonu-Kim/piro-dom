@@ -2,17 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   font-size: 5rem;
+  gap: 3rem;
 }
-#main > #cnt {
-  margin: 0 3rem;
-}
-#main > #minus,
-#main > #plus {
+
+#minus,
+#plus {
+  padding-top: 1rem;
   cursor: pointer;
 }
-#main > #minus:hover,
-#main > #plus:hover {
+
+#minus:hover,
+#plus:hover {
   opacity: 0.5;
 }
