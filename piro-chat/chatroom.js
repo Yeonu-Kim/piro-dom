@@ -3,10 +3,11 @@ const hashtagButton = document.getElementById("hashtag");
 const sendButton = document.getElementById("btn-send");
 const chatBubbleContainer = document.getElementById("chat-bubble");
 
-// 새로고침 했을 때 딱 1번 실행 되면서 자동 포커스
+// 새로고침 했을 때 딱 한 번 실행 되면서 자동 포커스
 chatInput.focus();
 
-// input이 들어왔을 때 전송 버튼 보이고 안 보이고
+// input이 들어왔다면 전송 버튼이 보이도록 설정
+// 만약 input이 없다면 해시태그 버튼이 보이도록 설정정
 chatInput.addEventListener("input", (event) => {
   const isVisible = event.target.value !== "";
   sendButton.style.display = isVisible ? "block" : "none";
@@ -19,7 +20,7 @@ chatInput.addEventListener("keypress", (event) => {
   }
 });
 
-let isMyMessage = true; // true -> 나 false -> 교육팀장님
+let isMyMessage = true; // true -> 나, false -> 교육팀장님
 
 // 전송 클릭 이벤트
 sendButton.addEventListener("click", () => {
@@ -73,9 +74,10 @@ sendButton.addEventListener("click", () => {
     bubbleContent.appendChild(bubble);
     contentDiv.appendChild(bubbleContent);
   }
-
+  // 다음에는 다른 사람이 전송하도록 설정
   isMyMessage = !isMyMessage;
   chatBubbleContainer.appendChild(contentDiv);
+  // 채팅 인풋창 비우기 및 스크롤 항상 하단에 있도록 조정
   chatInput.value = "";
   chatBubbleContainer.scrollTop = chatBubbleContainer.scrollHeight;
 
