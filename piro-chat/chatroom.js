@@ -1,36 +1,31 @@
 const chatInput = document.getElementById("chat-input");
-const hashtagBtn = document.getElementById("hashtag");
-const sendBtn = document.getElementById("btn-send");
+const hashtagButton = document.getElementById("hashtag");
+const sendButton = document.getElementById("btn-send");
+const chatBubbleContainer = document.getElementById("chat-bubble");
 
 // 새로고침 했을 때 딱 1번 실행 되면서 자동 포커스
 chatInput.focus();
 
 // input이 들어왔을 때 전송 버튼 보이고 안 보이고
 chatInput.addEventListener("input", (event) => {
-  if (event.target.value !== "") {
-    sendBtn.style.display = "block";
-    hashtagBtn.style.display = "none";
-  } else {
-    sendBtn.style.display = "none";
-    hashtagBtn.style.display = "block";
-  }
+  const isVisible = event.target.value !== "";
+  sendButton.style.display = isVisible ? "block" : "none";
+  hashtagButton.style.display = isVisible ? "none" : "block";
 });
 
 chatInput.addEventListener("keypress", (event) => {
   if (event.code === "Enter") {
-    sendBtn.click();
+    sendButton.click();
   }
 });
 
-let flag = true; // true -> 나 false -> 교육팀장님
-const chatBubbleContainer = document.getElementById("chat-bubble");
+let isMyMessage = true; // true -> 나 false -> 교육팀장님
 
 // 전송 클릭 이벤트
-sendBtn.addEventListener("click", () => {
+sendButton.addEventListener("click", () => {
   if (chatInput.value === "") return;
   const contentDiv = document.createElement("div");
-  if (flag) {
-    flag = false;
+  if (isMyMessage) {
     // 내 말풍선 띄우기
     /*
       <div class="my-bubble-content">
@@ -45,7 +40,6 @@ sendBtn.addEventListener("click", () => {
     bubble.innerText = chatInput.value;
     contentDiv.appendChild(bubble);
   } else {
-    flag = true;
     // 교육팀장님 말풍선 띄우기
     /**
       <div class="your-bubble">
@@ -79,11 +73,13 @@ sendBtn.addEventListener("click", () => {
     bubbleContent.appendChild(bubble);
     contentDiv.appendChild(bubbleContent);
   }
+
+  isMyMessage = !isMyMessage;
   chatBubbleContainer.appendChild(contentDiv);
   chatInput.value = "";
   chatBubbleContainer.scrollTop = chatBubbleContainer.scrollHeight;
 
-  // hashtagBtn 다시 보이기
-  hashtagBtn.style.display = "block";
-  sendBtn.style.display = "none";
+  // hashtagButton 다시 보이기
+  hashtagButton.style.display = "block";
+  sendButton.style.display = "none";
 });
