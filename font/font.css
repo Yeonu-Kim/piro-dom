@@ -25,6 +25,7 @@ html {
   height: 3px;
   background-color: black;
 }
+
 #text_slider::-webkit-slider-thumb {
   appearance: none;
   width: 2rem;
