@@ -22,6 +22,7 @@ body {
   align-items: center;
 }
 
+/* 채팅방 스타일링 */
 .chat-room {
   font-family: "Pretendard-Regular";
   width: 375px;
@@ -50,6 +51,7 @@ body {
   font-size: 1.3rem;
 }
 
+/* 채팅 말풍선 스타일링 */
 #chat-bubble {
   padding: 1rem 1.5rem;
   overflow-x: hidden;
@@ -65,10 +67,17 @@ body {
   border-radius: 5px;
 }
 
+.your-bubble .bubble,
+.my-bubble {
+  max-width: 13rem;
+  padding: 0.5rem;
+  word-break: break-word;
+  border-radius: 0.8rem;
+}
+
 .your-bubble {
   display: flex;
-  justify-content: start;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 1rem;
 }
 .your-bubble .profile {
@@ -76,7 +85,8 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 1rem;
-  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  margin-right: 1rem;
 }
 .your-bubble .profile > img {
   width: 40px;
@@ -90,35 +100,50 @@ body {
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
 }
-.your-bubble .bubble,
-.my-bubble {
-  max-width: 13rem;
-  padding: 0.5rem;
-  word-break: break-all;
-}
+
 .your-bubble .bubble {
   background-color: white;
-  border-radius: 0 0.8rem 0.8rem 0.8rem;
-  display: inline-block;
+  position: relative;
+}
+.your-bubble .bubble::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  border: 6px solid transparent;
+  border-right-color: white;
+  border-left: 0;
+  margin-left: -10px;
 }
 .my-bubble-content {
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   margin-bottom: 1rem;
 }
 .my-bubble {
   background-color: var(--kakao-yellow);
-  padding: 0.5rem;
-  border-radius: 0.8rem 0 0.8rem 0.8rem;
+  position: relative;
 }
 
+.my-bubble::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 6px;
+  border: 6px solid transparent;
+  border-left-color: var(--kakao-yellow);
+  border-right: 0;
+  margin-right: -10px;
+}
+
+/* 입력창 스타일링 */
 #chat-input-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 0.3rem 1.5rem 2.5rem 1.5rem;
+  padding: 0.3rem 1.5rem 2.5rem;
 }
 #chat-input-footer i {
   font-size: 1.5rem;
