@@ -1,16 +1,8 @@
-@font-face {
-  font-family: "NanumSquareNeoVariable";
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot);
-  src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.eot?#iefix)
-      format("embedded-opentype"),
-    url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.woff)
-      format("woff"),
-    url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeo-Variable.ttf)
-      format("truetype");
-}
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 html {
   font-size: 62.5%;
-  font-family: "NanumSquareNeoVariable";
+  font-family: "Albert Sans", sans-serif;
 }
 #main {
   display: flex;
